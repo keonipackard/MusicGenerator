@@ -45,10 +45,6 @@ all_files = glob.glob('All Midi Files/'+file_path[0]+'/.mid', recursive=True)
 # reading eadh midi file
 notes_array = np.array([read_files(i) for i in tqdm(all_files, position=0, leave=True)])
 
-#create new notes using the frequent notes
-#new_notes=[[i for i in j if i in freq_notes] for j in notes_array]
-
-
 #unique notes
 notess = sum(notes_array,[])
 unique_notes = list(set(notess))
@@ -56,9 +52,6 @@ print("Unique Notes:",len(unique_notes))
 
 #notes with their frequency
 freq=dict(map(lambda x: (x,notess.count(x)),unique_notes))
-
-#filter notes greater than threshold i.e. 50
-#freq_notes=dict(filter(lambda x:x[1]>=50,freq.items()))
 
 #get the threshold frequency
 for i in range(30,100,20):
