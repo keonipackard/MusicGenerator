@@ -1,0 +1,10 @@
+# Music21 is a python library that is used to parse and read various musical files
+# In this project the Musical Instrument Digital Interface (MIDI) file will be used, 
+# which is a small file size with ease of modification and manipulation and a wide choice of electronic instruments 
+# It is a universally accepted file format, which means that music produced by one synthesiser in MIDI format can be modified by another synthesiser.
+
+# STRUCTURE:
+#   - all midi files/: this is the dataset folder containing various midi files of different artists
+#   - music_gen.py: this file will build, train, and test the model
+#   - s2s/: this directory contains optimizer, metrics, and weights of trained model
+#   - pred_music.mid: this is a music file of predicted notes
