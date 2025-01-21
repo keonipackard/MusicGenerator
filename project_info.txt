@@ -1,10 +1,39 @@
-# Music21 is a python library that is used to parse and read various musical files
-# In this project the Musical Instrument Digital Interface (MIDI) file will be used, 
-# which is a small file size with ease of modification and manipulation and a wide choice of electronic instruments 
-# It is a universally accepted file format, which means that music produced by one synthesiser in MIDI format can be modified by another synthesiser.
+Automatic Music Generation is a process where a system composes short pieces of music using different 
+parameters like pitch interval, notes, chords, tempo, etc. In this Project we are going to use 
+Piano Instrument with the following terms:
 
-# STRUCTURE:
-#   - all midi files/: this is the dataset folder containing various midi files of different artists
-#   - music_gen.py: this file will build, train, and test the model
-#   - s2s/: this directory contains optimizer, metrics, and weights of trained model
-#   - pred_music.mid: this is a music file of predicted notes
+  - Note: This is a sound produced by a single key.
+  - Chords: The combination of 2 or more notes is called a chord.
+  - Octave: The distance between two notes is stated as an octave in a piano. It is specifically the gap 
+    between the two notes that share the same letter name.
+
+LSTM for Automatic Music Generation :
+Long Short Term Memory(LSTM) is a type of RNN (Recurrent Neural Network) that solves some scenarios where 
+RNN failed. LSTM solves Long-Term dependency problem of RNN i.e. RNN networks store data of previous output 
+in a memory for a very short period of time.
+LSTM also solves the problem of Vanishing Gradient i.e. in order to get the best result, the model tries to 
+minimize the loss after every time step by calculating loss with respect to some weights. After reaching a 
+certain period, this weight becomes so less that it approximates to zero or vanishes and the model stops training.
+
+Drawback of LSTM:
+LSTM requires lots of resources and time to get trained for real world applications. Randomly initializing 
+different weights makes LSTM networks behave similar to that of feed forward neural networks. Therefore they 
+require small weight initialization instead.
+Our model will be a Many-to-one sequence model as there will be one output for every sequence of input notes 
+after each timesteps.
+Input to the LSTM model will be the amplitude(A) of these notes which are recorded at different intervals of 
+time which computes hidden vectors and passes to the next layer for the next timestep(t).
+
+Music21 is a python library that is used to parse and read various musical files
+In this project the Musical Instrument Digital Interface (MIDI) file will be used, 
+which is a small file size with ease of modification and manipulation and a wide choice of electronic instruments 
+It is a universally accepted file format, which means that music produced by one synthesiser in MIDI format can be 
+modified by another synthesiser.
+
+STRUCTURE:
+   - all midi files/: this is the dataset folder containing various midi files of different artists
+   - music_gen.py: this file will build, train, and test the model
+   - s2s/: this directory contains optimizer, metrics, and weights of trained model
+   - pred_music.mid: this is a music file of predicted notes
+
+
